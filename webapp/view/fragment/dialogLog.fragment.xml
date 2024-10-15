@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified"
+xmlns:form="sap.ui.layout.form">
+    <Dialog titleAlignment="Center" horizontalScrolling="true"  showHeader="true" state="None" stretch="false" icon="sap-icon://add" title="Log de la solicitud" type="Standard" verticalScrolling="true">
+        <content>
+            
+            <Panel height="auto" width="100%" headerText="" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <Table
+                    items="{ path: 'SolicitudLogModel>/SOLICITUD_LOG'}">
+                        <columns>
+                            <Column >
+                                <Text text="Fecha" />
+                            </Column>
+                            <Column >
+                                <Text text="Usuario" />
+                            </Column>
+                            <Column >
+                                <Text text="Estado" />
+                            </Column>
+                            <Column >
+                                <Text text="Observacion" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{SolicitudLogModel>FECHA_MOVIMIENTO}" />
+                                    <Text text="{SolicitudLogModel>USUARIO}" />
+                                    <Text text="{SolicitudLogModel>ESTADO}" />
+                                    <Text text="{SolicitudLogModel>OBSERVACION}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <OverflowToolbar >
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://close-command-field" press="onFirstPress" tooltip="First" enabled="{NavLogModel>/firstPageBtnEnable}" />
+                        <Button icon="sap-icon://navigation-left-arrow" press="onPreviousPress" tooltip="Previous" enabled="{NavLogModel>/firstPageBtnEnable}" />
+                        <Text text="{i18n>page} {SolicitudLogModel>/PAGINA_ACTUAL} {i18n>of} {SolicitudLogModel>/PAGINAS_TOTALES}" />
+                        <Button icon="sap-icon://navigation-right-arrow" press="onNextPress" tooltip="Next" enabled="{NavLogModel>/nextPageBtnEnable}" />
+                        <Button icon="sap-icon://open-command-field" press="onLastPress" tooltip="Last" enabled="{NavLogModel>/nextPageBtnEnable}" />
+                    </OverflowToolbar>
+                </content>
+            </Panel>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Cerrar" type="Emphasized"  tooltip="Cerrar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCloseLog"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

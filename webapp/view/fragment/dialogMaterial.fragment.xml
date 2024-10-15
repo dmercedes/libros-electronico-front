@@ -1,0 +1,119 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified"
+xmlns:form="sap.ui.layout.form">
+    <Dialog titleAlignment="Center" horizontalScrolling="true"  showHeader="true" state="None" stretch="false" icon="sap-icon://add" title="Materiales" type="Standard" verticalScrolling="true">
+        <content>
+            <Panel height="auto" width="100%" headerText="Filtros de Búsqueda" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <form:Form width="100%" editable="true" visible="true">
+                        <form:title/>
+                        <form:formContainers>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="Código de material" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input required="true" placeholder="Código de material" enabled="true" showSuggestion="false" showValueHelp="false" value="{oFiltroMaterialModel>/CODIGO}"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="Descripción de material" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input placeholder="Descripción de material" enabled="true" showSuggestion="false" showValueHelp="false" value="{oFiltroMaterialModel>/DESCRIPCION}"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Button press="onBuscarMaterial" text="Buscar" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                        </form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="3" labelSpanL="5" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+                </content>
+            </Panel>
+            
+            <Panel height="auto" width="100%" headerText="Lista de Materiales" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="Lista de Materiales"/>
+                        <ToolbarSpacer width=""/>
+                        <Button press="onOpenDialogMaterialAdicional" text="Agregar Material" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <Table
+                    id="idMaterialTable"
+                    items="{ path: 'BusquedaMaterialModel>/MATERIAL'}"
+                    mode="SingleSelectLeft">
+                        <columns>
+                            <Column visible="false">
+                                <Text text="Id Material"/>
+                            </Column>
+                            <Column >
+                                <Text text="Código de material" />
+                            </Column>
+                            <Column >
+                                <Text text="Descripción de material" />
+                            </Column>
+                            <Column >
+                                <Text text="Descripción adicional" />
+                            </Column>
+                            <Column >
+                                <Text text="Modelo" />
+                            </Column>
+                            <Column >
+                                <Text text="Stock" />
+                            </Column>
+                            <Column >
+                                <Text text="Unidad Medida" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{BusquedaMaterialModel>ID_MATERIAL}" />
+                                    <Text text="{BusquedaMaterialModel>CODIGO_MATERIAL}" />
+                                    <Text text="{BusquedaMaterialModel>DESCRIPCION}" />
+                                    <Text text="{BusquedaMaterialModel>DESCRIPCION_ADICIONAL}" />
+                                    <Text text="{BusquedaMaterialModel>MODELO}" />
+                                    <Text text="{BusquedaMaterialModel>STOCK}" />
+                                    <Text text="{BusquedaMaterialModel>UNIDAD_MEDIDA}" />
+
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Cerrar" type="Emphasized"  tooltip="Cerrar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCloseMaterial"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

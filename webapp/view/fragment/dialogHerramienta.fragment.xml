@@ -1,0 +1,114 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified"
+xmlns:form="sap.ui.layout.form">
+    <Dialog titleAlignment="Center" horizontalScrolling="true"  showHeader="true" state="None" stretch="false" icon="sap-icon://add" title="Herramientas" type="Standard" verticalScrolling="true">
+        <content>
+            <Panel height="auto" width="100%" headerText="Filtros de Búsqueda" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <form:Form width="100%" editable="true" visible="true">
+                        <form:title/>
+                        <form:formContainers>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="Código de herramienta" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input  placeholder="Código de herramienta" enabled="true" showSuggestion="false" showValueHelp="false" value="{oFiltroHerramienta>/CODIGO}"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="Descripción de herramienta" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input placeholder="Descripción de herramienta" enabled="true" showSuggestion="false" showValueHelp="false" value="{oFiltroHerramienta>/DESCRIPCION}"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Button press="onBuscarHerramienta" text="Buscar" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                        </form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="3" labelSpanL="5" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+                </content>
+            </Panel>
+            
+            <Panel height="auto" width="100%" headerText="Lista de Herramientas" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text=""/>
+                        <ToolbarSpacer width=""/>
+                        <Button press="onOpenDialogHerramientaAdicional" text="Agregar Herramienta" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <Table
+                    id="idHerramientaTable"
+                    items="{ path: 'BusquedaHerramienta>/HERRAMIENTA'}"
+                    mode="SingleSelectLeft">
+                        <columns>
+                            <Column visible="false">
+                                <Text text="ID HERRAMIENTA"/>
+                            </Column>
+                            <Column >
+                                <Text text="Código de herramienta" />
+                            </Column>
+                            <Column >
+                                <Text text="Descripción de herramienta" />
+                            </Column>
+                            <Column >
+                                <Text text="Descripción adicional" />
+                            </Column>
+                            <Column >
+                                <Text text="Unidad de medida" />
+                            </Column>
+                            <Column >
+                                <Text text="Modelo" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier text="{BusquedaHerramienta>ID_HERRAMIENTA}"/>
+                                    <Text text="{BusquedaHerramienta>CODIGO}" />
+                                    <Text text="{BusquedaHerramienta>DESCRIPCION}" />
+                                    <Text text="{BusquedaHerramienta>DESCRIPCION_ADICIONAL}" />
+                                    <Text text="{BusquedaHerramienta>UNIDAD_MEDIDA}" />
+                                    <Text text="{BusquedaHerramienta>MODELO}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Cerrar" type="Emphasized"  tooltip="Cerrar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCloseHerramienta"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

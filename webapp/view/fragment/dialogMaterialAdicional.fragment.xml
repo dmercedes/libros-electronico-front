@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified"
+xmlns:form="sap.ui.layout.form">
+    <Dialog titleAlignment="Center" horizontalScrolling="true"  showHeader="true" state="None" stretch="false" icon="sap-icon://add" title="Información adicional" type="Standard" verticalScrolling="true">
+        <content>
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title/>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Cantidad a solicitar" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input placeholder="Ingresar cantidad a solicitar" type="Number" enabled="true" showSuggestion="false" showValueHelp="false" value="{oMotivoMaterialModel>/cantidad_solicitada}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <!--<form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Unidad de Medida" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox 
+                                        items="{path: 'comboUnidadModel>/UNIDAD_MEDIDA'}"
+                                        selectedKey="{comboUnidadModel>/KEY_SELECCIONADO}"
+                                        placeholder="Seleccione Unidad de Medida" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="{comboUnidadModel>VALOR}" enabled="true" key="{comboUnidadModel>CODIGO}"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>-->
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Unidad Medida" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <TextArea placeholder="Unidad Medida" enabled="false" value="{oMotivoMaterialModel>/unidad_medida_id}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Observación" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <TextArea placeholder="Observación" enabled="true" value="{oMotivoMaterialModel>/observacion}"/>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                </form:layout>
+            </form:Form>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Agregar" type="Accept"  icon="sap-icon://add" iconFirst="true" tooltip="Agregar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onAddMaterialAdicional"/>
+            <Button text="Cerrar" type="Reject"  icon="sap-icon://decline" iconFirst="true" tooltip="Cerrar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCloseMaterialAdicional"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

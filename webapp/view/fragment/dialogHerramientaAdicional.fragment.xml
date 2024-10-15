@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified"
+xmlns:form="sap.ui.layout.form">
+    <Dialog titleAlignment="Center" horizontalScrolling="true"  showHeader="true" state="None" stretch="false" icon="sap-icon://add" title="Información Adicional" type="Standard" verticalScrolling="true">
+        <content>
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title/>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true" id="fe_fecha_proy">
+                                <form:label>
+                                    <Label text="Fecha Proyectada de Devolución" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy" value="{oMotivoHerramienta>/fecha_devolucion}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Observación" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <TextArea placeholder="Ingresar observación" enabled="true" value="{oMotivoHerramienta>/observacion}"/>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                </form:layout>
+            </form:Form>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Agregar" type="Accept"  icon="sap-icon://add" iconFirst="true" tooltip="Agregar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onAddHerramientaAdicional"/>
+            <Button text="Cerrar" type="Reject"  icon="sap-icon://decline" iconFirst="true" tooltip="Cerrar" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCloseHerramientaAdicional"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

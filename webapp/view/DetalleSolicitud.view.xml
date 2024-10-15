@@ -1,0 +1,232 @@
+<mvc:View controllerName="missolicitudes.controller.DetalleSolicitud"
+    xmlns:table="sap.ui.table" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m" 
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+    >
+
+    <Page showHeader="true" title="Detalle de solicitud" showFooter="true" showNavButton="false">
+        <content>
+            <Panel height="auto" width="100%" headerText="Datos Generales" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <form:Form width="100%" editable="true" visible="true">
+                        <form:title/>
+                        <form:formContainers>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement id="fe_numero_solicitud" visible="true">
+                                        <form:label>
+                                            <Label text="Número de Solicitud" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_numero_solicitud" placeholder="número de solicitud" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_empresa" visible="true">
+                                        <form:label>
+                                            <Label text="Empresa" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_empresa" placeholder="Empresa" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="nro_proyecto" visible="true">
+                                        <form:label>
+                                            <Label text="N° de Proyecto" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_nro_proyecto" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_ceco_proyecto" visible="true">
+                                        <form:label>
+                                            <Label text="CeCo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_ceco_proyecto" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_evaluador" visible="true">
+                                        <form:label>
+                                            <Label text="Evaluador" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_evaluador" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_referencia" visible="true">
+                                        <form:label>
+                                            <Label text="Referencia" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_referencia" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                 <form:FormElement id="fe_fecha_solicitud" visible="true">
+                                        <form:label>
+                                            <Label text="Fecha de solicitud" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_fecha_solicitud" placeholder="Empresa" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_usuario_solicitante" visible="true">
+                                        <form:label>
+                                            <Label text="Usuario solicitante" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_usuario_solicitante" placeholder="Empresa" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                     <form:FormElement id="fe_nombre_proyecto" visible="true">
+                                        <form:label>
+                                            <Label text="Nombre de proyecto" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_nombre_proyecto" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_ceco_beneficio" visible="true">
+                                        <form:label>
+                                            <Label text="CeCo de beneficio" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="in_ceco_beneficio" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="entregar_a" visible="true">
+                                        <form:label>
+                                            <Label text="Entregar a" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                           <Input id="in_entregar_a" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_estado" visible="true">
+                                        <form:label>
+                                            <Label text="Estado" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                           <Input id="in_estado" enabled="false" showSuggestion="false" showValueHelp="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer id="bloque_rechazo" visible="false">
+                                <form:formElements>
+                                    <form:FormElement id="fe_motivo" visible="true">
+                                        <form:label>
+                                            <Label id="lbl_motivo" text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                           <TextArea id="in_motivo" enabled="false"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                        </form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+
+                    
+                </content>
+            </Panel>
+            <Panel height="auto" width="100%" headerText="Detalle" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                        <headerToolbar>
+                            <OverflowToolbar style="Clear">
+                                <Title text="Detalle"/>
+                                <ToolbarSpacer width=""/>
+                                <Button id="btn-edit" press="onEdit" text="Editar" type="Default" icon="sap-icon://edit" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                                <Button id="btn-log" press="onOpenDialogLog" text="Ver Log" type="Default" icon="sap-icon://information" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+
+                                <Button id="btn-addMaterial" press="onOpenDialogMaterial" text="Agregar Material" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                                <Button id="btn-addHerramienta" press="onOpenDialogHerramienta" text="Agregar Herramienta" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                                <Button id="btn-deleteDetail" press="onEliminarDetalle" text="Eliminar" type="Default" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <content>
+                            <Table id="idDetalleTable" items="{ path: 'HistoricoSolicitudDetalleModel>/DETALLE_SOLICITUD'}">
+                                <columns>
+                                    <Column visible="false">
+                                        <Text text="Id Detalle Solicitud"/>
+                                    </Column>
+                                    <Column >
+                                        <Text text="Código" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Descripción" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Descripción adicional" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Tipo" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Modelo" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Unidad de medida" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Cantidad solicitada" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Cantidad atendida" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Fecha Proyectada de devolución" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Observación" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectIdentifier title="{HistoricoSolicitudDetalleModel>ID_SOLICITUD_DETALLE}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>codigo}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>descripcion}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>descripcion_adicional}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>tipo_desc}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>modelo}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>unidad_desc}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>cantidad_solicitada}" />
+                                            <Text text="{path: 'HistoricoSolicitudDetalleModel>cantidad_atendida', formatter: '.formatQuantityAtendida'}"  />
+                                            <Text text="{HistoricoSolicitudDetalleModel>fecha_devolucion}" />
+                                            <Text text="{HistoricoSolicitudDetalleModel>observacion}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </Panel>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Solid" enabled="true" visible="true">
+                <ToolbarSpacer/>
+                
+                <Button press="onCancelarSolicitud" id="btn-cancel" text="Cancelar" type="Reject" icon="sap-icon://cancel" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                <Button press="onGuardarSolicitud" id="btn-save" text="Guardar" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+                <Button press="onEnviarSolicitud" id="btn-send" text="Enviar" type="Accept" icon="sap-icon://paper-plane" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+            
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>
