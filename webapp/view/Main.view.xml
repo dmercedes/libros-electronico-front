@@ -16,26 +16,25 @@
                         <form:formContainers>
                             <form:FormContainer visible="true">
                                 <form:formElements>
-                                    <form:FormElement id="fe_fecha_inicio" visible="true">
+                                    <!--<form:FormElement id="fe_fecha_inicio" visible="true">
                                         <form:label>
                                             <Label text="Fecha de Inicio" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                         </form:label>
                                         <form:fields>
                                             <DatePicker id="dp_fecha_inicio" valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy"/>
                                         </form:fields>
-                                    </form:FormElement>
-                                    <form:FormElement id="nro_proyecto" visible="true">
+                                    </form:FormElement>-->
+                                    <form:FormElement id="periodo" visible="true">
                                         <form:label>
-                                            <Label text="N° de Proyecto" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Label text="Periodo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                         </form:label>
                                         <form:fields>
-                                            <ComboBox id="cbo-nro-proyecto" items="{path: 'listaNroProyecto>/FILTRO_PROYECTO_NRO'}" placeholder="Seleccione número de proyecto" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
-                                            selectionChange="onNroProyectoChange"
-                                            selectedKey="{listaNroProyecto>/LLAVE}">
-                                                <items>
-                                                    <core:Item text="{listaNroProyecto>VALOR}" enabled="true" key="{listaNroProyecto>LLAVE}"/>
-                                                </items>
-                                            </ComboBox>
+                                            <Input id="input-periodo" 
+                                                placeholder="Escriba el periodo" 
+                                                editable="true" 
+                                                enabled="true" 
+                                                visible="true" 
+                                                width="auto" />
                                         </form:fields>
                                     </form:FormElement>
                                     <form:FormElement id="entregar_a" visible="true">
@@ -112,7 +111,22 @@
                                                     iconDensityAware="false"
                                                 />
                                             </HBox>
+                                            <HBox justifyContent="End" width="100%" >
+                                                <Button
+                                                    press="onGenerarTxt"
+                                                    id="btn-generar"
+                                                    text="Generar Libro"
+                                                    type="Emphasized"
+                                                    icon="sap-icon://download"
+                                                    iconFirst="true"
+                                                    width="100%"
+                                                    enabled="true"
+                                                    visible="true"
+                                                    iconDensityAware="false"
+                                                />
+                                            </HBox>
                                         </form:fields>
+                                        
                                     </form:FormElement>
                                 </form:formElements>
                                 <form:title/>

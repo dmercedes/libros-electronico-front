@@ -24,11 +24,8 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
     };
     return BaseController.extend("missolicitudes.controller.Main", {
         onInit: function () {
-            
-
             //this._loadFiltro();
             //this._loadSolicitudData(gFilttro, 1, gPageSize);
-
             const orderRoute = this.getOwnerComponent().getRouter().getRoute("RouteMain");
             orderRoute.attachPatternMatched(this.onPatternMatched, this);
 
@@ -46,49 +43,12 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
             this._loadFiltro();
             this._loadSolicitudData(gFilttro, 1, gPageSize);
         },
-        onAgregar: function(){
-            console.log("Ir a Agregar");
-            this.getOwnerComponent().getEventBus().publish("SolicitudChannel", "ActualizarNumeroSolicitud", {});
-            this.getRouter().navTo("NuevaSolicitud");
-        },
-        onDetalle: function(){
-            var _this = this;
-
-            console.log("Ir a Detalle");
-            var oTable = this.getView().byId("idSolicitudesTable");
-            var aSelectedItems = oTable.getSelectedItems();
-
-            if (aSelectedItems.length === 0 || aSelectedItems.length > 1) {
-                //sap.m.MessageToast.show("Por favor, seleccione una solicitud");
-                _this.openDialog("Alerta", "Debe seleccionar una solicitud.", "i");
-                return;
-            }
-
-            var oSelectedItem = aSelectedItems[0];
-            var oContext = oSelectedItem.getBindingContext("SolicitudesModel");
-            var iIdSolicitud = oContext.getProperty("ID_SOLICITUD");
-
-            console.log("Solicitud seleccionada: " + iIdSolicitud);
-            const dataToPass = iIdSolicitud;
-            this.getOwnerComponent().getModel("ModelDetalle").setProperty("/DetalleSolicitud", dataToPass, null, true);
-            //this.getOwnerComponent().getEventBus().publish("DetalleChannel", "ActualizarInputs", {});
-            this.getRouter().navTo("DetalleSolicitud", {
-                id_solicitud: iIdSolicitud
-            });
-
-            //console.log("Ir a Detalle");
-            //Si no hay registros seleccionados, mostrar alerta
-            /*
-            this.openDialog("Alerta", "Debe seleccionar una solicitud.", "i");
-            */
-            //this.getRouter().navTo("DetalleSolicitud");
-        },
         onBuscar: function(){
             var _this = this;
             console.log("Buscando...");
 
             var requiredFields = [
-                "dp_fecha_inicio", "dp_fecha_fin"
+                "input-periodo"
             ];
         
             var esValido = true;
@@ -97,8 +57,6 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
                 var oField = _this.getView().byId(fieldId);
                 var value = oField.getValue ? oField.getValue() : oField.getSelectedKey();
                 if (!value) {
-                    // oField.setValueState(sap.ui.core.ValueState.Error);
-                    //oField.setValueStateText("Este campo es requerido.");
                     if (!dialogOpened) {
                         _this.openDialog("Alerta", "Para realizar la búsqueda por fechas, debe ingresar la fecha de inicio y la fecha de fin.", "i");
                         dialogOpened = true;
@@ -110,19 +68,11 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
             });
 
             if(esValido){
-                var vfecha_inicio = this.getView().byId("dp_fecha_inicio");
-                var vfecha_fin = this.getView().byId("dp_fecha_fin");
+                var input_periodo = this.getView().byId("input-periodo");
+                //var vfecha_fin = this.getView().byId("dp_fecha_fin");
     
-                if (vfecha_fin.getDateValue() < vfecha_inicio.getDateValue()) {
-                    vfecha_fin.setValueState(sap.ui.core.ValueState.Error);
-                    vfecha_fin.setValueStateText("La fecha fin no puede ser menor a la fecha de inicio.");
-                    return;
-                } else {
-                    vfecha_fin.setValueState(sap.ui.core.ValueState.None);
-                }
-    
-                gFilttro.fecha_inicio = vfecha_inicio.getValue();
-                gFilttro.fecha_fin = vfecha_fin.getValue();
+                gFilttro.input_periodo = input_periodo.getValue();
+                //gFilttro.fecha_fin = vfecha_fin.getValue();
                 console.log("gFilttro", gFilttro);
                 this._loadSolicitudData(gFilttro, 1, gPageSize);
             }
@@ -169,7 +119,7 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
             }
         },
         _loadSolicitudData: function (pFiltro, pPage, pSize) {
-            var _url = this.getApiVSM() + 'api/mis-solicitud/v1/find';
+            var _url = this.getApiVSM() + 'api/libros-electronicos/v1/find';
             var _this = this;
 
             var queryPagination = {

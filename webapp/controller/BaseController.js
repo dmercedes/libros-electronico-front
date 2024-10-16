@@ -12,8 +12,8 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("missolicitudes.controller.BaseController", {
 		getApiVSM: function(){
-			return "https://and_herr_node-restless-otter-zi.cfapps.us10-001.hana.ondemand.com/";
-			//return "http://localhost:8080/";
+			//return "https://and_herr_node-restless-otter-zi.cfapps.us10-001.hana.ondemand.com/";
+			return "http://localhost:8089/";
 			//return "./backend/";
 		},
         openDialog: function(title, text, state){
