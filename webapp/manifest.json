@@ -100,6 +100,21 @@
           "target": [
               "DetalleSolicitud"
           ]
+        },
+        {
+          "pattern": "Libro3_2",
+          "name": "Libro3_2",
+          "target": "Libro3_2"
+        },
+        {
+          "pattern": "Libro3_3",
+          "name": "Libro3_3",
+          "target": "Libro3_3"
+        },
+        {
+          "pattern": "Libro14_1",
+          "name": "Libro14_1",
+          "target": "Libro14_1"
         }
       ],
       "targets": {
@@ -123,6 +138,30 @@
           "viewId": "DetalleSolicitud",
           "viewLevel": 1,
           "transition": "slide"
+        },
+        "Libro3_2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Libro3_2",
+          "viewName": "Libro3_2",
+          "viewLevel": 1
+        },
+        "Libro3_3": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Libro3_3",
+          "viewName": "Libro3_3",
+          "viewLevel": 1
+        },
+        "Libro14_1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Libro14_1",
+          "viewName": "Libro14_1",
+          "viewLevel": 1
         }
       }
     },

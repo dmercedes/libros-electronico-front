@@ -1,0 +1,207 @@
+<mvc:View controllerName="missolicitudes.controller.Libro14_1"
+    xmlns:table="sap.ui.table" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m" 
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+    >
+
+    <Page showHeader="true" title="{i18n>title}" showFooter="true" showNavButton="false">
+        <content>
+            <Panel height="auto" width="100%" headerText="Libro 14.1" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <form:Form width="100%" editable="true" visible="true">
+                        <form:title/>
+                        <form:formContainers>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    
+                                    <form:FormElement id="periodo" visible="true">
+                                        <form:label>
+                                            <Label text="Periodo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="input-periodo" 
+                                                placeholder="Escriba el periodo" 
+                                                editable="true" 
+                                                enabled="true" 
+                                                visible="true" 
+                                                width="auto" />
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="cuo" visible="true">
+                                        <form:label>
+                                            <Label text="CUO" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="input-cuo" 
+                                                placeholder="Escriba el CUO" 
+                                                editable="true" 
+                                                enabled="true" 
+                                                visible="true" 
+                                                width="auto" />
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement id="fe_fecha_emision" visible="true">
+                                        <form:label>
+                                            <Label text="Fecha de emision" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <DatePicker id="dp_fecha_emision" valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                            <form:FormContainer visible="true">
+                                <form:formElements>
+                                    <form:FormElement id="correlativo" visible="true">
+                                        <form:label>
+                                            <Label text="Numero correlativo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input id="input-correlativo" 
+                                                placeholder="Escriba el correlativo" 
+                                                editable="true" 
+                                                enabled="true" 
+                                                visible="true" 
+                                                width="auto" />
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement id="tipo_comprobante" visible="true">
+                                        <form:label>
+                                            <Label text="Tipo Comprobante" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <ComboBox id="cbo-tipo-comprobante" items="{path: 'NroProyectoModel>/RESULT'}" placeholder="Seleccionar tipo comprobante" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                                <items>
+                                                    <core:Item text="{NroProyectoModel>NRO_PROYECTO}" enabled="true" key="{NroProyectoModel>NRO_PROYECTO}"/>
+                                                </items>
+                                            </ComboBox>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    
+                                    <form:FormElement id="fe_fecha_vencimiento" visible="true">
+                                        <form:label>
+                                            <Label text="Fecha de vencimiento" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <DatePicker id="dp_fecha_vencimiento" valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement visible="true">
+                                        <form:label>
+                                            <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <HBox justifyContent="End" width="100%" >
+                                                <Button
+                                                    press="onBuscar"
+                                                    id="btn-buscar"
+                                                    text="Buscar"
+                                                    type="Emphasized"
+                                                    icon="sap-icon://search"
+                                                    iconFirst="true"
+                                                    width="180px"
+                                                    enabled="true"
+                                                    visible="true"
+                                                    iconDensityAware="false"
+                                                />
+                                            </HBox>
+                                            <HBox justifyContent="End" width="100%" >
+                                                <Button
+                                                    press="onGenerarTxt"
+                                                    id="btn-generar"
+                                                    text="Generar Libro"
+                                                    type="Emphasized"
+                                                    icon="sap-icon://download"
+                                                    iconFirst="true"
+                                                    width="180px"
+                                                    enabled="true"
+                                                    visible="true"
+                                                    iconDensityAware="false"
+                                                />
+                                            </HBox>
+                                        </form:fields>
+                                        
+                                    </form:FormElement>
+                                </form:formElements>
+                                <form:title/>
+                            </form:FormContainer>
+                        </form:formContainers>
+                        <form:layout>
+                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                        </form:layout>
+                    </form:Form>
+                </content>
+            </Panel>
+            <Panel height="auto" width="100%" headerText="Resultados" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                        <headerToolbar>
+                            <OverflowToolbar style="Clear">
+                                <Title text="Resultados"/>
+                                <ToolbarSpacer width=""/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <content>
+                            <Table id="idSolicitudesTable" mode="SingleSelectLeft" items="{ path: 'SolicitudesModel>/SOLICITUD'}">
+                                <columns>
+                                    <Column >
+                                        <Text text="Periodo"/>
+                                    </Column>
+                                    <Column >
+                                        <Text text="CUO" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Nro. Correlativo" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="F. Emision" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="F. Vencimiento" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Tipo Comprobante" />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Nro. Serie Comp." />
+                                    </Column>
+                                    <Column >
+                                        <Text text="Nro. Comprobante" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectIdentifier text="{SolicitudesModel>ID_SOLICITUD}"/>
+                                            <Text text="{SolicitudesModel>NRO_SOLICITUD}" />
+                                            <Text text="{SolicitudesModel>FECHA_SOLICITUD}" />
+                                            <Text text="{SolicitudesModel>EMPRESA}" />
+                                            <Text text="{SolicitudesModel>NRO_PROYECTO}" />
+                                            <Text text="{SolicitudesModel>NOMBRE_PROYECTO}" />
+                                            <Text text="{SolicitudesModel>SOLICITANTE}" />
+                                            <Text text="{SolicitudesModel>ENTREGAR_A}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </Panel>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                  <ToolbarSpacer />
+                                <Button id="BtnFirstPressId" icon="sap-icon://close-command-field" press="onFirstPress" tooltip="First" enabled="{NavModel>/firstPageBtnEnable}" />
+                                <Button id="BtnPreviousPressId" icon="sap-icon://navigation-left-arrow" press="onPreviousPress" tooltip="Previous" enabled="{NavModel>/firstPageBtnEnable}" />
+                                <Text id="PageTextId" text="{i18n>page} {SolicitudesModel>/PAGINA_ACTUAL} {i18n>of} {SolicitudesModel>/PAGINAS_TOTALES}" />
+                                <Button id="BtnNextPressId" icon="sap-icon://navigation-right-arrow" press="onNextPress" tooltip="Next" enabled="{NavModel>/nextPageBtnEnable}" />
+                                <Button id="BtnLastPressId" icon="sap-icon://open-command-field" press="onLastPress" tooltip="Last" enabled="{NavModel>/nextPageBtnEnable}" />
+                            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

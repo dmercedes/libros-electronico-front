@@ -22,11 +22,11 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
         fecha_fin: "",
         id_estado: ""
     };
-    return BaseController.extend("missolicitudes.controller.Main", {
+    return BaseController.extend("missolicitudes.controller.Libro3_3", {
         onInit: function () {
             //this._loadFiltro();
             //this._loadSolicitudData(gFilttro, 1, gPageSize);
-            const orderRoute = this.getOwnerComponent().getRouter().getRoute("RouteMain");
+            const orderRoute = this.getOwnerComponent().getRouter().getRoute("Libro3_3");
             orderRoute.attachPatternMatched(this.onPatternMatched, this);
 
         },
@@ -243,19 +243,6 @@ function (BaseController, Controller, Fragment, Dialog, Button, mobileLibrary, T
             oNavModel.setProperty("/previousPageBtnEnable", currentPage > 1);
             oNavModel.setProperty("/nextPageBtnEnable", currentPage < totalPages);
             oNavModel.setProperty("/lastPageBtnEnable", currentPage < totalPages);
-        },
-        onNavToLibro3_2: function() {
-            this.getOwnerComponent().getRouter().navTo("Libro3_2");
-        },
-        
-        onNavToLibro3_3: function() {
-            this.getOwnerComponent().getRouter().navTo("Libro3_3");
-        },
-        
-        onNavToLibro14_1: function() {
-            this.getOwnerComponent().getRouter().navTo("Libro14_1");
         }
-        
     });
-    
 });
